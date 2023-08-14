@@ -1,0 +1,420 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+
+:root{
+    --font0:verdana,helvetica,sans-serif;
+    --font1:'Montserrat',cursive;
+    --font2:'Passion one';
+    --font3:'Sriracha';
+    --cor0:#f2e205;
+    --cor1:#f2cb05;
+    --cor2:#f2b705;
+    --cor3:#f29f05;
+    --cor4:#8c3503;
+    --cor4:#d9d9d9;
+    --cor5:#303030;
+    --cor6:#354A69;
+    --cor7:#c28729;
+    --cor8:#9D5306;
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+
+    font-family: var(--font1);
+    min-width: 100vh;
+
+    
+}
+
+header{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background:linear-gradient(30deg,var(--cor7),var(--cor6),var(--cor6) 40%,var(--cor6) 80%,var(--cor7));
+    color: white;
+    border-bottom: 1px solid black;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+
+    
+   
+}
+
+header div{
+    display:flex;
+    flex-direction: row;
+}
+
+header div .logo-principal{
+    background-image:  url(../_images/sol-logo3.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 5em;
+    height: 5em;
+    z-index: 2;
+}
+
+h1{
+    font-family: var(--font1);
+    font-size: 10vh;
+    color:#ffffff;
+    text-shadow: -3px 2px 1px var(--cor7);
+    font-variant: small-caps;
+    border: 1x solid #141110;
+
+}
+
+h2#titulo{
+    font-family: var(--font1);
+    font-size: 9vh;
+    font-weight: bolder;
+    color: var(--cor5);
+    text-transform: uppercase;
+    margin-bottom: 1em;
+    
+}
+
+nav#menu ul{
+    display: flex;
+    flex-direction: row;
+    list-style : none;
+    border-color:var(--cor5);
+    border-width: 1px;
+    border-style:solid ;
+    border-radius: 10px;    
+    background:linear-gradient(150deg,var(--cor7),var(--cor6),var(--cor6) 40%,var(--cor6) 80%,var(--cor7)); 
+    margin:10px ;
+    overflow: hidden;
+   
+}
+
+    nav#menu ul li{
+        position: relative;
+        width: 15vh;
+        z-index: 2;
+        padding: 10px;
+        margin:2px;
+        transition: background-color 1s;
+        transition: 0.5s;
+                   
+    }
+
+    #menu ul li a{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction:column;
+        width: 100%;
+        text-decoration:none ;
+        text-align: center;
+    }
+
+    #menu ul li a .icon{
+    position: relative;
+    display: block;
+    line-height: 35px;
+    font-size: 1.5em;
+    text-align: center;
+    color: #ffffff;
+}
+    #menu ul li:hover a .icon{
+    transform: translateY(-25px);
+    transition: 0.5s;
+}
+    #menu ul li a .text{
+    position: absolute;
+    font-size: 0.75;
+    letter-spacing: 0.05em;
+    font-weight:600;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px black;
+    transform: translateY(20px);
+    transition: 0.5s;
+    opacity: 0;
+    
+}
+#menu ul li:hover  a .text{
+    transform: translateY(10px);
+    opacity:1;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding-top:13em;
+    
+    
+    
+}
+
+.container{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    justify-content: center;
+    align-items: flex-start;
+    
+}
+.container .box{
+    position: relative;
+    width:40vh;
+    height: 40vh;
+    background: #000;
+    transition: 0.5s;
+    transform-style: preserve-3d;
+    overflow: hidden;
+    margin-bottom: 3em;
+    border-radius: 10px;
+    opacity: 0;
+    left: 200px;
+
+}
+
+.container:hover .box{
+    transform: rotateY(25deg);
+}
+
+.container .box:hover ~ .box{
+    transform: rotateY(-25deg);
+}
+
+.container .box:hover{
+    transform: rotateY(0deg) scale(1.25);
+    z-index: 1;
+    box-shadow: 0 25px 40px #000;
+}
+
+
+.container .box .imgbx{
+    position: absolute;
+    top: 0;
+    left: 0 ;
+    width: 100%;
+    height: 100%;
+}
+.container .box .imgbx:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg,rgba(255, 0, 0, 0.719),rgba(0, 0, 0, 0.797));
+    z-index: 1;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.container .box:hover .imgbx:before{
+    opacity: 1;
+}
+
+.container .box .imgbx img{
+    position: relative;
+    top: 0;
+    left: 0 ;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container .box .content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    padding: 20px;
+    align-items: flex-end;
+    box-sizing: border-box;
+}
+
+.container .box .content h2{
+    color:#fff;
+    transition: 0.5s;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-size: 3vh;
+    transform: translateY(260px);
+    
+    
+}
+.container .box .content p{
+    color:#fff;
+    transition: 0.5s;
+    font-size: 2.3vh;
+    transform: translateY(260px);
+    
+    
+}
+.container .box:hover .content h2{
+    transform: translateY(0);
+    transition-delay: 0.6s;
+   
+}
+.container .box:hover .content p{
+    transform: translateY(0);
+    transition-delay: 0.7s;
+}
+
+footer{
+    position: relative;
+    background-color: var(--cor6);
+    border-top: 1px solid var(--cor5);
+    padding-top:1em;
+    padding-bottom:1em;
+    font-family: var(--font1);
+    font-weight: bolder;
+    color:#ffffff;
+    font-size: 2vh;
+    text-shadow: 2px 2px 2px var(--cor5);
+    text-decoration: none;
+    width: 100%;
+}
+ #principal{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-left: 2em;
+    padding-right: 2em;
+    
+}
+
+#principal div{
+    width: 23em;
+    border-left: 1px dashed var(--cor5);
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom:10px ;
+    margin-bottom: 10px;
+}
+
+#principal div .logo{
+
+    background-image: url(../_images/sol-logo3.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    border: none;
+    height: 7em;
+
+}
+
+#principal div a{
+    color: white;
+    text-decoration: none;
+    transition: 0.5s;
+    font-weight: bolder;
+
+}
+
+#principal div a:hover{
+    text-decoration: underline;
+}
+
+#principal div h2{
+    padding-bottom: 0.5em;
+}
+
+
+#direitos{
+    background-color: var(--cor5);
+    padding-top:1em;
+    padding: 1em;
+    text-align: center;
+    justify-content: center;
+    color: #ffffff;
+
+}
+
+    
+.redes{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    align-items: stretch;
+    justify-content: space-around;
+    top:42%;
+    right: 0;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: var(--cor2);
+
+}
+
+
+div ul{
+    list-style: none;
+    
+}
+
+div .icon{
+    position: relative;
+    display: block;
+    line-height: 1em;
+    font-size: 2em;
+    text-align: center;
+    color: #ffffff;
+    margin: 5px;
+    
+}
+
+div ul li:hover a #face{
+    color:#5078CB;
+    transform: rotate(-30deg);
+    transition: all 0.8s;
+    
+}
+
+div ul li:hover a #whats{
+    color:#1AD03F;
+    transform: rotate(-30deg);
+    transition: all 0.8s;
+        
+}
+
+div ul li:hover a #insta{
+    color:#D90056;
+    transform: rotate(-30deg);
+    transition: all 0.8s;
+    
+}
+
+div#direitos p a{
+    color: white;
+    text-decoration: none;
+    transition: 0.5s;
+    font-weight: bolder;
+}
+
+div#direitos p a{
+    text-decoration: underline;
+}
+
+
+
+
+
